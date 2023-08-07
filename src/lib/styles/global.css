@@ -41,7 +41,6 @@
 	--colour-light-oklch: 95.63% 0.008 17.3;
 	--colour-light: oklch(var(--colour-light-oklch));
 	--colour-light-alpha-90: oklch(var(--colour-light-oklch) / 0.9);
-	--colour-light-alpha-90-shadow: 221deg 5% 56%;
 	--colour-light-alpha-90-shadow: 64.21% 0.012 265.91;
 	--colour-light-alpha-90-shadow-elevation-low: -1px 1px 1.4px
 			oklch(var(--colour-light-alpha-90-shadow) / 0.48),
@@ -59,7 +58,7 @@
 
 	--colour-alt: oklch(86.56% 0.1786 98.0112); /* gold */
 
-	--colour-warning: lch(49.9% 79.57 31.28); /* alizarin crimson */
+	--colour-warning: oklch(58.71% 0.214 24.15); /* alizarin crimson */
 }
 
 *,
@@ -152,8 +151,7 @@ button {
 	color: var(--colour-light);
 	border: var(--spacing-px) solid var(--colour-theme);
 	margin-block: var(--spacing-2);
-	padding-inline: var(--spacing-2);
-	padding-block: var(--spacing-2);
+	padding: var(--spacing-2);
 	font: var(--font-weight-medium) var(--font-size-2) var(--font-family);
 	border-radius: var(--spacing-2);
 	text-align: center;
