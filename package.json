@@ -1,0 +1,58 @@
+{
+	"name": "sveltekit-form-example",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"start": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --plugin=prettier-plugin-svelte --check . && eslint .",
+		"lint:css": "stylelint \"src/**/*.{css,svelte}\"",
+		"format": "prettier --plugin=prettier-plugin-svelte --write .",
+		"prettier:check": "prettier --check --plugin=prettier-plugin-svelte ."
+	},
+	"devDependencies": {
+		"@csstools/postcss-global-data": "^2.0.1",
+		"@csstools/postcss-relative-color-syntax": "^2.0.1",
+		"@sveltejs/adapter-auto": "^2.1.0",
+		"@sveltejs/kit": "^1.22.4",
+		"@typescript-eslint/eslint-plugin": "^6.2.1",
+		"@typescript-eslint/parser": "^6.2.1",
+		"autoprefixer": "^10.4.14",
+		"commitlint": "^17.6.7",
+		"eslint": "^8.46.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin-svelte": "^2.32.4",
+		"husky": "^8.0.3",
+		"postcss-csso": "^6.0.1",
+		"postcss-html": "^1.5.0",
+		"postcss-preset-env": "^9.1.1",
+		"prettier": "^3.0.1",
+		"prettier-plugin-svelte": "^3.0.3",
+		"stylelint": "^15.10.2",
+		"stylelint-config-recommended": "^13.0.0",
+		"stylelint-config-standard": "^34.0.0",
+		"stylelint-gamut": "^1.3.3",
+		"svelte": "^4.1.2",
+		"svelte-check": "^3.4.6",
+		"tslib": "^2.6.1",
+		"typescript": "^5.1.6",
+		"vite": "^4.4.9",
+		"zod": "^3.21.4"
+	},
+	"dependencies": {
+		"@commitlint/config-conventional": "^17.6.7",
+		"svelte-preprocess": "^5.0.4"
+	},
+	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rodneylab/sveltekit-form-example"
+	},
+	"bugs": {
+		"url": "https://github.com/rodneylab/sveltekit-form-example/issues"
+	}
+}
