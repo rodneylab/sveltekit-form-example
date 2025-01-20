@@ -7,12 +7,12 @@ const config = {
 		postcssPresetEnv({
 			stage: 2,
 			features: {
-				'media-query-ranges': true
-			}
+				'media-query-ranges': true,
+			},
 		}),
 		autoprefixer(),
-		csso()
-	]
+		csso(),
+	],
 };
 
 module.exports = config;

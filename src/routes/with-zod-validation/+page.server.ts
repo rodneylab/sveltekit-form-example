@@ -1,7 +1,8 @@
-import { fail, redirect } from '@sveltejs/kit';
-import type { Actions } from './$types';
-import { ZodError } from 'zod';
 import { contactFormSchema } from '$lib/schema';
+import type { Actions } from './$types';
+import { fail, redirect } from '@sveltejs/kit';
+import { ZodError } from 'zod';
+
 // import { POSTMARK_SERVER_TOKEN } from '$env/static/private';
 
 export const actions: Actions = {
@@ -52,12 +53,12 @@ export const actions: Actions = {
 					message: typeof message === 'string' ? message : '',
 					error: {
 						...(fieldErrors?.email ? { field: 'email', message: fieldErrors.email[0] } : {}),
-						...(fieldErrors?.message ? { field: 'message', message: fieldErrors.message[0] } : {})
-					}
+						...(fieldErrors?.message ? { field: 'message', message: fieldErrors.message[0] } : {}),
+					},
 				});
 			}
 			// rethrow to enable redirect to work
 			throw error;
 		}
-	}
+	},
 };

@@ -7,5 +7,5 @@ export const contactFormSchema = z.object({
 	message: z
 		.string({ required_error: 'Don’t forget to leave a message!' })
 		.min(1, 'Don’t forget to leave a message!')
-		.max(1024, 'That’s a long message, try getting to the point quicker!')
+		.max(1024, 'That’s a long message, try getting to the point quicker!'),
 });
