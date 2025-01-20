@@ -1,5 +1,6 @@
-import { fail, redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
+import { fail, redirect } from '@sveltejs/kit';
+
 // import { POSTMARK_SERVER_TOKEN } from '$env/static/private';
 
 export const actions: Actions = {
@@ -11,14 +12,14 @@ export const actions: Actions = {
 		if (typeof email !== 'string') {
 			return fail(400, {
 				message: typeof message === 'string' ? message : '',
-				error: { field: 'email', message: 'Check your email address.' }
+				error: { field: 'email', message: 'Check your email address.' },
 			});
 		}
 
 		if (typeof message !== 'string') {
 			return fail(400, {
 				email,
-				error: { field: 'message', message: 'Don’t forget to leave a message!' }
+				error: { field: 'message', message: 'Don’t forget to leave a message!' },
 			});
 		}
 
@@ -53,5 +54,5 @@ export const actions: Actions = {
    */
 
 		throw redirect(303, '/');
-	}
+	},
 };

@@ -23,7 +23,8 @@
 			placeholder="trinidad@example.com"
 		/>
 		<label for="message">Message</label>
-		<textarea id="message" required name="message" placeholder="Leave your message…" rows={4} />
+		<textarea id="message" required name="message" placeholder="Leave your message…" rows={4}
+		></textarea>
 		<button type="submit">Send</button>
 	</form>
 </main>

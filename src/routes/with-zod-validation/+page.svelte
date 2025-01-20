@@ -1,13 +1,15 @@
 <script lang="ts">
 	import type { ActionData } from './$types';
-	export let form: ActionData;
 
-	let { email, error, message } = form ?? {};
-	$: ({ email, error, message } = form ?? {
-		email: '',
-		error: { field: '', message: '' },
-		message: ''
-	});
+	let { form }: { form: ActionData } = $props();
+
+	let { email, error, message } = $state(
+		form ?? {
+			email: '',
+			error: { field: '', message: '' },
+			message: '',
+		},
+	);
 </script>
 
 <svelte:head>
@@ -44,7 +46,7 @@
 			rows={4}
 			aria-invalid={error?.field === 'message'}
 			aria-describedby={error?.field === 'message' ? 'message-error' : undefined}
-		/>
+		></textarea>
 		{#if error?.field === 'message'}
 			<small id="message-error">{error.message}</small>
 		{/if}
