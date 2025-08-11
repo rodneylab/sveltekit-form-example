@@ -28,6 +28,7 @@
 		<input
 			value={email}
 			id="email"
+			type="email"
 			name="email"
 			autocomplete="username"
 			placeholder="trinidad@example.com"
