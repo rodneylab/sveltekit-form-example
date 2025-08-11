@@ -1,7 +1,7 @@
 import { contactFormSchema } from '$lib/schema';
 import type { Actions } from './$types';
 import { fail, redirect } from '@sveltejs/kit';
-import { ZodError } from 'zod';
+import { flattenError, ZodError } from 'zod';
 
 // import { POSTMARK_SERVER_TOKEN } from '$env/static/private';
 
@@ -45,15 +45,25 @@ export const actions: Actions = {
 			throw redirect(303, '/');
 		} catch (error: unknown) {
 			if (error instanceof ZodError) {
-				const errors = error.flatten();
+				const { fieldErrors } = flattenError(error);
+				type FieldError = Record<string, string | string[]>;
+				const validationErrors = Object.fromEntries(
+					Object.entries(fieldErrors as FieldError).map(([key, value]) => [
+						key,
+						value.length === 1 ? value[0] : value,
+					]),
+				);
 				const { email, message } = formEntries;
-				const { fieldErrors } = errors;
 				return fail(400, {
 					email: typeof email === 'string' ? email : '',
 					message: typeof message === 'string' ? message : '',
 					error: {
-						...(fieldErrors?.email ? { field: 'email', message: fieldErrors.email[0] } : {}),
-						...(fieldErrors?.message ? { field: 'message', message: fieldErrors.message[0] } : {}),
+						...(validationErrors?.email
+							? { field: 'email', message: validationErrors?.email[0] }
+							: {}),
+						...(validationErrors?.message
+							? { field: 'message', message: validationErrors.message[0] }
+							: {}),
 					},
 				});
 			}
