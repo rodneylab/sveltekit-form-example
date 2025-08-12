@@ -59,10 +59,10 @@ export const actions: Actions = {
 					message: typeof message === 'string' ? message : '',
 					error: {
 						...(validationErrors?.email
-							? { field: 'email', message: validationErrors?.email[0] }
+							? { field: 'email', message: validationErrors?.email }
 							: {}),
 						...(validationErrors?.message
-							? { field: 'message', message: validationErrors.message[0] }
+							? { field: 'message', message: validationErrors.message }
 							: {}),
 					},
 				});
